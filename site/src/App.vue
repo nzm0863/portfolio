@@ -96,6 +96,30 @@ onMounted(() => {
     easing: "ease-in-out",
     interval: 250,
   });
+  ScrollReveal().reveal(".Iot-item img", {
+    delay: 100,
+    origin: "bottom",
+    duration: 1000,
+    easing: "ease-in-out",
+  });
+  ScrollReveal().reveal(".Iot-item video", {
+    delay: 100,
+    origin: "bottom",
+    duration: 1000,
+    easing: "ease-in-out",
+    }); 
+  ScrollReveal().reveal(".Iot-devices-items", {
+    delay: 100,
+    origin: "bottom",
+    duration: 1000,
+    easing: "ease-in-out",
+  });
+  ScrollReveal().reveal(".arduinoIDE-img", {
+    delay: 100,
+    origin: "bottom",
+    duration: 1000,
+    easing: "ease-in-out",
+  });
 });
 
 // ハンバーガー
@@ -130,19 +154,26 @@ onMounted(() => {
     ease: "bounce.out",
     delay: 0.6,
   });
-  gsap.from("#header-about", {
+  gsap.from("#header-Iot", {
     duration: 1,
     y: -100,
     opacity: 0,
     ease: "bounce.out",
     delay: 0.8,
   });
-  gsap.from("#header-contact", {
+  gsap.from("#header-about", {
     duration: 1,
     y: -100,
     opacity: 0,
     ease: "bounce.out",
     delay: 1.0,
+  });
+  gsap.from("#header-contact", {
+    duration: 1,
+    y: -100,
+    opacity: 0,
+    ease: "bounce.out",
+    delay: 1.2,
   });
   gsap.from(".hero h2", {
     duration: 3,
@@ -181,6 +212,8 @@ onMounted(() => {
     }
   })});
 
+  
+
   gsap.from("#aboutImage", {
   scale: 0.4,           // 小さく
   opacity: 0,           
@@ -190,10 +223,11 @@ onMounted(() => {
   ease: "elastic.out(1, 0.5)", // 弾むような動き
   scrollTrigger: {
     trigger: "#aboutImage",
-    start: "top 80%",
+    start: "top 100%",
     toggleActions: "restart none none none",
-  }})}
-);
+  }
+  });
+});
 
 
 
@@ -209,8 +243,10 @@ onMounted(() => {
             <li id="header-home"><a href="/">Home</a></li>
             <li id="header-works"><a href="#works">Works</a></li>
             <li id="header-skill"><a href="#skill">Skill</a></li>
+            <li id="header-Iot"><a href="#Iot">Iot</a></li>
             <li id="header-about"><a href="#about">About</a></li>
             <li id="header-contact"><a href="#contact">Contact</a></li>
+            
           </ul>
         </nav>
         <!-- ハンバーガー -->
@@ -224,10 +260,11 @@ onMounted(() => {
           <div></div>
         </div>
         <nav class="nav-sp" :class="{ open: navOpen }">
-          <ul>
+          <ul>  
             <li><a href="/" @click="navOpen = false">Home</a></li>
             <li><a href="#works" @click="navOpen = false">Works</a></li>
             <li><a href="#skill" @click="navOpen = false">Skill</a></li>
+            <li><a href="#Iot" @click="navOpen = false">Iot</a></li>
             <li><a href="#about" @click="navOpen = false">About</a></li>
             <li><a href="#contact" @click="navOpen = false">Contact</a></li>
           </ul>
@@ -365,17 +402,54 @@ onMounted(() => {
       </div>
     </div>
   </section>
+  
+  <section class="Iot">
+    <h2 class="Iot-headline" id="Iot">Iot</h2>
+    <h3 class="ESP32-headline">ESP32で作成した電子回路</h3>
+    <div class="Iot-items">
+      <div class="Iot-item">
+        <img src="/img/PXL_20260109_054044567.jpg" alt="Iot-img" />
+      </div>
+      <div class="Iot-item">
+        <img src="/img/1000001053.jpg" alt="Iot-img" />
+      </div>
+    </div>
+    <div class="Iot-item">
+      <h3 class="raspberry-headline">raspberry piで作成した車</h3>
+      <video src="/video/1000000932.mp4" aria-label="Iot-video" 
+      muted
+      preload="metadata"
+      controls
+      />
+    </div>
+    <h3 class="Iot-devices-headline">使用した機器,ソフトウェア</h3>
+    <div class="Iot-devices">
+      <div class="Iot-devices-items">
+        <img src="/img/ESP32.jpg" alt="ESP32" class="Iot-device-img"/>
+        <div class="Iot-device">ESP32</div>
+      </div>
+      <div class="Iot-devices-items">
+        <img src="/img/raspberryPi5.png" alt="raspberryPi5" class="Iot-device-img"/>
+        <div class="Iot-device">Raspberry Pi</div>
+      </div>
+    </div>
+    <div class="Iot-devices-items">
+      <img src="/img/arduinoIDE.png" alt="arduinoIDE" class="arduinoIDE-img"/>
+      <div class="Iot-device">arduinoIDE</div>
+    </div>
+  </section>
 
   <section class="about">
     <h2 class="about-headline" id="about">About</h2>
     <figure class="about-figure">
       <img src="/img/me.jpg" alt="me" id="aboutImage" />
       <figure class="about-figcaption" id="aboutFigcaption">
-        Web制作を中心に、UI設計やフロントエンド開発を行っている静岡県浜松市在住の中村です。<br />
-        HTML/CSSやJavaScript、Vue.jsなどを用いたコーディングを得意とし、FigmaやPhotoshopを使ったデザイン制作にも対応可能です。<br />「見る人に伝わる・使う人にとって心地よい」を大切に、丁寧なものづくりを心がけています。
+        Web制作、UI設計、フロントエンド開発やIot開発を行っている静岡県浜松市在住の中村です。<br />
+        HTML/CSSやJavaScript、Vue.js、TypeScriptのほかarduinoIDEやRaspberry Piを用いたコーディングを得意とし、FigmaやPhotoshopを使ったデザイン制作にも対応可能です。<br />「見る人に伝わる・使う人にとって心地よい」を大切に、丁寧なものづくりを心がけています。
       </figure>
     </figure>
   </section>
+
 
   <section class="contact" id="contact">
     <h1 class="contact-headline">Contact</h1>
@@ -551,6 +625,11 @@ header {
   justify-content: space-between;
   align-items: center;
 }
+@media screen and (max-width: 1500px) and (min-width: 768px) {
+  .header_wrap {
+    width: 90vw;
+  }
+}
 .header_wrap h1 {
   margin: 0;
 }
@@ -595,7 +674,7 @@ header h1 a {
 
 /* hero */
 .hero {
-  position: relative; /* absoluteからrelativeに変更 */
+  position: relative; 
   width: 100%;
   height: 100vh;
   min-height: 100vh;
@@ -680,11 +759,12 @@ video.fade {
 }
 .works-item a {
   width: fit-content;
-  line-height: 0; /* 画像下の隙間も消す */
+  line-height: 0; 
 }
 .works-item img {
   width: 35vw;
-  height: 500px;
+  height: 50vh;
+  max-height: 500px;
   object-fit: cover;
   transition: all 0.2s;
   margin: 10px;
@@ -719,7 +799,7 @@ video.fade {
 .banner-chocolate:hover + .banner-chocolate-large,
 .banner-outdoor:hover + .banner-outdoor-large {
   opacity: 1;
-  transform: scale(1.1); /* 拡大率はお好みで */
+  transform: scale(1.1); 
 }
 
 /* skill */
@@ -742,7 +822,7 @@ video.fade {
   margin: 0 auto;
 }
 .skill-item {
-  flex: 0 1 calc(25% - 30px); /* 4つ並ぶように幅を指定（gap分を調整） */
+  flex: 0 1 calc(25% - 30px); 
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -759,6 +839,97 @@ video.fade {
 .html-css img {
   width: 70%;
 }
+
+/* Iot */
+.Iot {
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+.Iot-headline {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 30px;
+  scroll-margin-top: 200px;
+}
+.Iot-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 100px;
+  justify-content: center;
+  margin: 0 auto;
+}
+.Iot-item {
+  flex: 0 1 calc(25% - 30px);
+}
+.Iot-item img {
+  width: 30vw;
+  height: 400px;
+  object-fit: cover;
+  margin: 10px;
+  transition: all 0.2s!important;
+}
+.Iot-item img:hover {
+  transform: scale(1.05)!important;
+}
+.Iot-item video {
+  width: 50%;
+  height: 80vh;
+  object-fit: cover;
+  transition: all 0.2s;
+  margin: 10px;
+}
+.ESP32-headline {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+.raspberry-headline {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+.Iot-devices-headline {
+  font-size: 30px;
+  margin-bottom: 10px;
+  color: #fff;
+}
+.Iot-devices {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+}
+.Iot-devices-items {
+  align-items: center;
+  justify-content: center;
+}
+.Iot-device-img {
+  width: 30vw;
+  height: 50vh;
+  object-fit: cover;
+  margin: 20px 10px 10px 0;
+  transition: all 0.2s!important;
+}
+.Iot-device-img:hover {
+  transform: scale(1.05);
+}
+.Iot-device {
+  font-size: 20px;
+  color: #fff;
+  margin-left: 10px;
+}
+.arduinoIDE-img {
+  width: 50vw;
+  height: 450px;
+  object-fit: cover;
+  margin: 70px 0 10px 10px;
+  transition: all 0.2s!important;
+}
+.arduinoIDE-img:hover {
+  transform: scale(1.05)!important;
+}
+
 
 /* about */
 .about {
@@ -1073,7 +1244,97 @@ video.fade {
     width: 100px;
     margin: 10px;
   }
-  /* about */
+
+  /* Iot */
+  .Iot-headline,.Iot-devices-headline {
+    font-size: 24px;
+    margin: 20px 0;
+    padding: 0;
+    scroll-margin-top: 100px;
+  }
+  .Iot-items {
+    gap: 20px;
+  }
+  .Iot-item img {
+    width: 100vw;
+    height: 50vh;
+    object-fit: cover;
+    transition: all 0.2s;
+    margin: 0;
+  }
+  .Iot-item video {
+    width: 100%;
+    height: 80vh;
+    object-fit: cover;
+    transition: all 0.2s;
+    margin: 0;
+  }
+  .Iot-devices-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 100px;
+  }
+  .Iot-item h3{
+    margin-top: 50px;
+  }
+  .Iot-device-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: all 0.2s;
+    margin: 0;
+  }
+  .Iot-device {
+    font-size: 20px;
+    color: #fff;
+    margin-left: 10px;
+  }
+  .arduinoIDE-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: all 0.2s;
+    margin: 0;
+  }
+  .Iot-devices {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+  .Iot-devices-items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+  .Iot-device-img {
+    width: 100%; 
+    height: 50vh;
+    object-fit: cover;
+    transition: all 0.2s;
+    margin: 0;
+  }
+  .Iot-device {
+    font-size: 20px;
+    color: #fff;
+    margin-left: 0;
+    margin-top: 10px;
+    margin-bottom: 50px;
+  }
+  .arduinoIDE-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: all 0.2s;
+    margin: 0;
+  }
+
+    /* about */
   .about-headline {
     font-size: 24px;
     margin: 20px 0;
@@ -1094,7 +1355,7 @@ video.fade {
   }
   .about-figcaption {
     width: 80%;
-    margin-left: 0;
+    margin-left: 10vw;
     line-height: 1.5;
     text-align: left;
     text-indent: 1em;
