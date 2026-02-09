@@ -101,6 +101,11 @@ onMounted(() => {
     origin: "bottom",
     duration: 1000,
     easing: "ease-in-out",
+    afterReveal: (el: any) => {
+      if (el && el.style) {
+        el.style.transition = "transform 0.2s";
+      }
+    },
   });
   ScrollReveal().reveal(".Iot-item video", {
     delay: 100,
@@ -867,7 +872,6 @@ video.fade {
   height: 400px;
   object-fit: cover;
   margin: 10px;
-  transition: all 0.2s!important;
 }
 .Iot-item img:hover {
   transform: scale(1.05)!important;
@@ -876,7 +880,6 @@ video.fade {
   width: 50%;
   height: 80vh;
   object-fit: cover;
-  transition: all 0.2s;
   margin: 10px;
 }
 .ESP32-headline {
