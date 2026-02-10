@@ -410,7 +410,7 @@ onMounted(() => {
   
   <section class="Iot">
     <h2 class="Iot-headline" id="Iot">Iot</h2>
-    <h3 class="ESP32-headline">ESP32で作成した電子回路</h3>
+    <h3 class="ESP32-headline">ESP32で作成した電子回路<br />自宅の照明を毎朝自動で点灯させる赤外線送信機</h3>
     <div class="Iot-items">
       <div class="Iot-item">
         <img src="/img/PXL_20260109_054044567.jpg" alt="Iot-img" />
