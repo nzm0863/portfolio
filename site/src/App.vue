@@ -125,6 +125,12 @@ onMounted(() => {
     duration: 1000,
     easing: "ease-in-out",
   });
+  ScrollReveal().reveal(".API-items", {
+    delay: 100,
+    origin: "bottom",
+    duration: 1000,
+    easing: "ease-in-out",
+  });
 });
 
 // ハンバーガー
@@ -216,26 +222,33 @@ onMounted(() => {
       toggleActions: "restart none none none",
     }
   })});
+  // gsap.from(".API-items", {
+  //   duration: 1,
+  //   opacity: 0,
+  //   y: 80,
+  //   ease: "power2.out",
+  //   scrollTrigger: {
+  //     trigger: ".API-items",
+  //     start: "top 100%",
+  //     toggleActions: "restart none none none",
+  //   }
+  // });
 
-  
 
   gsap.from("#aboutImage", {
-  scale: 0.4,           // 小さく
-  opacity: 0,           
-  rotate: 720,           
-  duration: 4,       
-  y:300,                // 下から   
-  ease: "elastic.out(1, 0.5)", // 弾むような動き
-  scrollTrigger: {
-    trigger: "#aboutImage",
-    start: "top 100%",
-    toggleActions: "restart none none none",
-  }
+    scale: 0.4,           // 小さく
+    opacity: 0,           
+    rotate: 720,           
+    duration: 4,       
+    y:300,                // 下から   
+    ease: "elastic.out(1, 0.5)", // 弾むような動き
+    scrollTrigger: {
+      trigger: "#aboutImage",
+      start: "top 100%",
+      toggleActions: "restart none none none",
+    }
   });
 });
-
-
-
 </script>
 
 <template>
@@ -248,7 +261,7 @@ onMounted(() => {
             <li id="header-home"><a href="/">Home</a></li>
             <li id="header-works"><a href="#works">Works</a></li>
             <li id="header-skill"><a href="#skill">Skill</a></li>
-            <li id="header-Iot"><a href="#Iot">Iot</a></li>
+            <li id="header-Iot"><a href="#Iot">IoT</a></li>
             <li id="header-about"><a href="#about">About</a></li>
             <li id="header-contact"><a href="#contact">Contact</a></li>
             
@@ -269,7 +282,7 @@ onMounted(() => {
             <li><a href="/" @click="navOpen = false">Home</a></li>
             <li><a href="#works" @click="navOpen = false">Works</a></li>
             <li><a href="#skill" @click="navOpen = false">Skill</a></li>
-            <li><a href="#Iot" @click="navOpen = false">Iot</a></li>
+            <li><a href="#Iot" @click="navOpen = false">IoT</a></li>
             <li><a href="#about" @click="navOpen = false">About</a></li>
             <li><a href="#contact" @click="navOpen = false">Contact</a></li>
           </ul>
@@ -409,7 +422,7 @@ onMounted(() => {
   </section>
   
   <section class="Iot">
-    <h2 class="Iot-headline" id="Iot">Iot</h2>
+    <h2 class="Iot-headline" id="Iot">IoT</h2>
     <h3 class="ESP32-headline">ESP32で作成した電子回路<br />自宅の照明を毎朝自動で点灯させる赤外線送信機</h3>
     <div class="Iot-items">
       <div class="Iot-item">
@@ -442,6 +455,10 @@ onMounted(() => {
       <img src="/img/arduinoIDE.png" alt="arduinoIDE" class="arduinoIDE-img"/>
       <div class="Iot-device">arduinoIDE</div>
     </div>
+    <div class="API-items">
+      <img src="/img/API.png" alt="API" class="API-img"/>
+      <div class="API-device">API <a href="https://github.com/nzm0863/Iot_light_web_ver1.0" target="_blank" rel="noopener noreferrer" class="API-link">コードを見る→</a></div>
+    </div>
   </section>
 
   <section class="about">
@@ -453,6 +470,10 @@ onMounted(() => {
         HTML/CSSやJavaScript、Vue.js、TypeScriptのほかarduinoIDEやRaspberry Piを用いたコーディングを得意とし、FigmaやPhotoshopを使ったデザイン制作にも対応可能です。<br />「見る人に伝わる・使う人にとって心地よい」を大切に、丁寧なものづくりを心がけています。
       </figure>
     </figure>
+    <div class="sns-links">
+      <a href="https://github.com/nzm0863/" class="github-link" target="_blank" rel="noopener noreferrer"><img src="/img/GitHub_Lockup_White.png" alt="GitHub" /></a>
+      <a href="https://www.youtube.com/@nakamura-nnzzm/shorts" class="youtube-link" target="_blank" rel="noopener noreferrer"><img src="/img/youtube_link5.png" alt="YouTube" /></a>
+    </div>
   </section>
 
 
@@ -932,6 +953,26 @@ video.fade {
 .arduinoIDE-img:hover {
   transform: scale(1.05)!important;
 }
+.API-img {
+  width: 80vw;
+  height: auto;
+  object-fit: cover;
+  margin: 70px 0 10px 10px;
+  transition: all 0.2s!important;
+}
+.API-img:hover {
+  transform: scale(1.05)!important;
+}
+.API-link {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 10px;
+  transition: all 0.2s;
+}
+.API-link:hover {
+  transform: scale(1.05);
+}
+
 
 
 /* about */
@@ -951,7 +992,7 @@ video.fade {
   align-items: center;
   margin: 0 auto;
 }
-.about img {
+.about-figure img {
   width: 250px;
   height: auto;
   border-radius: 50%;
@@ -965,6 +1006,74 @@ video.fade {
   text-indent: 1em;
 }
 
+/* sns-links */
+.sns-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  margin-top: 50px;
+}
+.sns-links a {
+  height: 50px;
+  object-fit: cover;
+  transition: all 0.2s;
+}
+.sns-links a:hover {
+  transform: scale(1.05);
+}
+.sns-links a img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.API-device {
+  align-items: center;
+  margin-top: 10px;
+}
+.API-device a{
+  color: #fff;
+  text-decoration: none;
+  margin-left: 10px;
+  margin-top: -10px;
+  background-color: #00b60f;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #003504;
+  box-shadow: 0 10px 10px 0 #003504;
+  position: absolute;
+  right: 10vw;
+}
+.sns-links .github-link{
+  width: 15vw;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.2s;
+}
+.sns-links .github-link:hover {
+  transform: scale(1.05);
+}
+.sns-links .github-link img {
+  display: block;
+  margin:0 auto;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin-top: 30px;
+  max-width: 200px;
+}
+.sns-links .youtube-link{
+  object-fit: cover;
+  transition: all 0.2s;
+}
+.sns-links .youtube-link:hover {
+  transform: scale(1.05);
+}
+.sns-links .youtube-link img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+}
 /* contact */
 .contact {
   padding: 20px;
@@ -1135,10 +1244,10 @@ video.fade {
     text-align: center;
     justify-content: center;
     height: 70%;
-    margin-top: 50px;
+    margin-top: 120px;
   }
   .header_wrap nav.open ul li {
-    margin: 40px 0;
+    margin: 30px 0;
   }
   .header_wrap nav.open ul li a {
     font-size: 20px;
@@ -1336,6 +1445,14 @@ video.fade {
     transition: all 0.2s;
     margin: 0;
   }
+  .API-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin-top: 0;
+    transition: all 0.2s;
+    margin-left: 0;
+  }
 
     /* about */
   .about-headline {
@@ -1364,6 +1481,44 @@ video.fade {
     text-indent: 1em;
   }
 
+  /* sns-links */
+  .sns-links {
+    gap: 30px;
+    margin-top: 20px;
+    display: block;
+  }
+  .sns-links a {
+    height: 30px;
+    margin: 0 auto;
+  }
+  .sns-links a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .sns-links a:hover {
+    transform: scale(1.05);
+  }
+  .API-device a {
+    padding: 0;
+    position: absolute;
+    right: 0;
+    margin: 0;
+  }
+  .sns-links .github-link img {
+    display: block;
+    margin:0 auto;
+    width: 95vw;
+    height: auto;
+    margin:0 auto;
+  }
+  .sns-links .youtube-link img{
+    display: block;
+    margin:0 auto;
+    width: 95vw;
+    height:auto;
+    margin-top: 30px;
+  }
   /* contact */
   .contact-headline {
     font-size: 40px;
