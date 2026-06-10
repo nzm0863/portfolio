@@ -36,103 +36,6 @@ onUnmounted(() => {
   if (intervalId) clearInterval(intervalId);
 });
 
-// scrollreveal
-declare var ScrollReveal: {
-  (options?: any): {
-    reveal: (selector: string, options?: any) => void;
-  };
-};
-const isMobile = window.innerWidth <= 768; // モバイル判定
-
-if (isMobile) {
-  ScrollReveal({
-    distance: "30px",
-    duration: 1000,
-    easing: "ease-in-out",
-    reset: true,
-  });
-} else {
-  ScrollReveal({
-    distance: "100px",
-    duration: 1000,
-    easing: "ease-in-out",
-    reset: true,
-  });
-}
-
-onMounted(() => {
-  ScrollReveal().reveal(".works-item", {
-    delay: 100,
-    origin: "bottom",
-    duration: 1000,
-    easing: "ease-in-out",
-  });
-  // ScrollReveal().reveal(".skill-item", {
-  //   delay: 100,
-  //   origin: "bottom",
-  //   duration: 1000,
-  //   easing: "ease-in-out",
-  //   interval: isMobile ? 0 : 250,
-  // });
-  // ScrollReveal().reveal("#aboutImage", {
-  //   delay: 500,
-  //   origin: "left",
-  //   duration: 1000,
-  //   easing: "ease-in-out",
-  //   interval: 250,
-  // });
-  ScrollReveal().reveal("#aboutFigcaption", {
-    delay: 500,
-    origin: "top",
-    duration: 1000,
-    easing: "ease-in-out",
-    interval: 250,
-    distance: "30px",
-  });
-  ScrollReveal().reveal("#contactform_table", {
-    delay: 500,
-    origin: "left",
-    duration: 1000,
-    easing: "ease-in-out",
-    interval: 250,
-  });
-  ScrollReveal().reveal(".Iot-item img", {
-    delay: 100,
-    origin: "bottom",
-    duration: 1000,
-    easing: "ease-in-out",
-    afterReveal: (el: any) => {
-      if (el && el.style) {
-        el.style.transition = "transform 0.2s";
-      }
-    },
-  });
-  ScrollReveal().reveal(".Iot-item video", {
-    delay: 100,
-    origin: "bottom",
-    duration: 1000,
-    easing: "ease-in-out",
-    }); 
-  ScrollReveal().reveal(".Iot-devices-items", {
-    delay: 100,
-    origin: "bottom",
-    duration: 1000,
-    easing: "ease-in-out",
-  });
-  ScrollReveal().reveal(".arduinoIDE-img", {
-    delay: 100,
-    origin: "bottom",
-    duration: 1000,
-    easing: "ease-in-out",
-  });
-  ScrollReveal().reveal(".API-items", {
-    delay: 100,
-    origin: "bottom",
-    duration: 1000,
-    easing: "ease-in-out",
-  });
-});
-
 // ハンバーガー
 const navOpen = ref(false);
 
@@ -156,7 +59,7 @@ onMounted(() => {
     y: -100,
     opacity: 0,
     ease: "bounce.out",
-    delay: 0.4 ,
+    delay: 0.4,
   });
   gsap.from("#header-skill", {
     duration: 1,
@@ -203,50 +106,40 @@ onMounted(() => {
     ease: "elastic.out(1, 0.3)",
   });
   gsap.from(".video-container video", {
-    scale: 2,      
-    duration: 3,     
-    ease: "power2.out"
+    scale: 2,
+    duration: 3,
+    ease: "power2.out",
   });
-  
-  gsap.utils.toArray(".skill-item").forEach((el) => {
-  gsap.from(el as Element, {
-    scale: 0.7,           // 小さく
-    opacity: 0,           // 透明
-    y: 80,                // 下から
-    rotate: 45,           // 45度回転
-    duration: 1.4,        // ゆっくり
-    ease: "elastic.out(1, 0.5)", // 弾むような動き
-    scrollTrigger: {
-      trigger: el as Element,
-      start: "top 80%",
-      toggleActions: "restart none none none",
-    }
-  })});
-  // gsap.from(".API-items", {
-  //   duration: 1,
-  //   opacity: 0,
-  //   y: 80,
-  //   ease: "power2.out",
-  //   scrollTrigger: {
-  //     trigger: ".API-items",
-  //     start: "top 100%",
-  //     toggleActions: "restart none none none",
-  //   }
-  // });
 
+  gsap.utils.toArray(".skill-item").forEach((el) => {
+    gsap.from(el as Element, {
+      scale: 0.7, // 小さく
+      opacity: 0, // 透明
+      y: 80, // 下から
+      rotate: 45, // 45度回転
+      duration: 1.4, // ゆっくり
+      ease: "elastic.out(1, 0.5)", // 弾むような動き
+      scrollTrigger: {
+        trigger: el as Element,
+        start: "top 80%",
+        toggleActions: "restart none none none",
+        once: true,
+      },
+    });
+  });
 
   gsap.from("#aboutImage", {
-    scale: 0.4,           // 小さく
-    opacity: 0,           
-    rotate: 720,           
-    duration: 4,       
-    y:300,                // 下から   
-    ease: "elastic.out(1, 0.5)", // 弾むような動き
+    scale: 0.4,
+    opacity: 0,
+    rotate: 720,
+    duration: 4,
+    y: 300,
+    ease: "elastic.out(1, 0.5)",
     scrollTrigger: {
       trigger: "#aboutImage",
       start: "top 100%",
-      toggleActions: "restart none none none",
-    }
+      once: true, // ← 追加
+    },
   });
 });
 </script>
@@ -264,7 +157,6 @@ onMounted(() => {
             <li id="header-Iot"><a href="#Iot">IoT</a></li>
             <li id="header-about"><a href="#about">About</a></li>
             <li id="header-contact"><a href="#contact">Contact</a></li>
-            
           </ul>
         </nav>
         <!-- ハンバーガー -->
@@ -278,7 +170,7 @@ onMounted(() => {
           <div></div>
         </div>
         <nav class="nav-sp" :class="{ open: navOpen }">
-          <ul>  
+          <ul>
             <li><a href="/" @click="navOpen = false">Home</a></li>
             <li><a href="#works" @click="navOpen = false">Works</a></li>
             <li><a href="#skill" @click="navOpen = false">Skill</a></li>
@@ -306,56 +198,22 @@ onMounted(() => {
     <h2 class="works-headline" id="works">Works</h2>
     <div class="works-items">
       <div class="works-item">
-        <a href="https://www.nnzzm.com/sigotoru1" target="_blank" rel="noopener noreferrer"
+        <a
+          href="https://www.nnzzm.com/sigotoru1"
+          target="_blank"
+          rel="noopener noreferrer"
           ><img src="/img/dentist.jpg" alt="dentist"
         /></a>
         <p>歯科のホームページ<br />vite,TypeScript,Reactで作成</p>
       </div>
       <div class="works-item">
-        <a href="https://www.nnzzm.com/weight/" target="_blank" rel="noopener noreferrer"
-          ><img src="/img/weight.jpg" alt="weight"
-        /></a>
-        <p>体重管理サイト<br />HTML/CSS,JavaScriptで作成</p>
-      </div>
-      <div class="works-item">
-        <a href="https://www.nnzzm.com/university/" target="_blank" rel="noopener noreferrer"
+        <a
+          href="https://www.nnzzm.com/university/"
+          target="_blank"
+          rel="noopener noreferrer"
           ><img src="/img/university.jpg" alt="university"
         /></a>
         <p>大学のホームページ<br />WordPressで作成</p>
-      </div>
-      <div class="works-item">
-        <a href="https://www.nnzzm.com/GRIT_GYM/" target="_blank" rel="noopener noreferrer"
-          ><img src="/img/GYM.jpg" alt="GYM"
-        /></a>
-        <p>GYMのホームページ<br />vue.js,viteで作成</p>
-      </div>
-      <div class="works-item">
-        <a href="https://www.nnzzm.com/hair/" target="_blank" rel="noopener noreferrer"
-          ><img src="/img/hair.png" alt="salon"
-        /></a>
-        <p>美容室のサイト<br />WordPressで作成</p>
-      </div>
-      <div class="works-item">
-        <img
-          src="/img/chocolate.jpg"
-          alt="chocolate"
-          class="banner-chocolate"
-        />
-        <img
-          src="/img/chocolate.jpg"
-          alt="chocolate拡大"
-          class="banner-chocolate-large"
-        />
-        <p>バナー広告<br />photoshopで作成</p>
-      </div>
-      <div class="works-item">
-        <img src="/img/outdoor.png" alt="outdoor" class="banner-outdoor" />
-        <img
-          src="/img/outdoor.png"
-          alt="outdoor拡大"
-          class="banner-outdoor-large"
-        />
-        <p>バナー広告<br />Figmaで作成</p>
       </div>
     </div>
   </section>
@@ -420,10 +278,12 @@ onMounted(() => {
       </div>
     </div>
   </section>
-  
+
   <section class="Iot">
     <h2 class="Iot-headline" id="Iot">IoT</h2>
-    <h3 class="ESP32-headline">ESP32で作成した電子回路<br />自宅の照明を毎朝自動で点灯させる赤外線送信機</h3>
+    <h3 class="ESP32-headline">
+      ESP32で作成した電子回路<br />自宅の照明を毎朝自動で点灯させる赤外線送信機
+    </h3>
     <div class="Iot-items">
       <div class="Iot-item">
         <img src="/img/PXL_20260109_054044567.jpg" alt="Iot-img" />
@@ -434,30 +294,45 @@ onMounted(() => {
     </div>
     <div class="Iot-item">
       <h3 class="raspberry-headline">raspberry piで作成した車</h3>
-      <video src="/video/1000000932.mp4" aria-label="Iot-video" 
-      muted
-      preload="metadata"
-      controls
+      <video
+        src="/video/1000000932.mp4"
+        aria-label="Iot-video"
+        muted
+        preload="metadata"
+        controls
       />
     </div>
     <h3 class="Iot-devices-headline">使用した機器,ソフトウェア</h3>
     <div class="Iot-devices">
       <div class="Iot-devices-items">
-        <img src="/img/ESP32.jpg" alt="ESP32" class="Iot-device-img"/>
+        <img src="/img/ESP32.jpg" alt="ESP32" class="Iot-device-img" />
         <div class="Iot-device">ESP32</div>
       </div>
       <div class="Iot-devices-items">
-        <img src="/img/raspberryPi5.png" alt="raspberryPi5" class="Iot-device-img"/>
+        <img
+          src="/img/raspberryPi5.png"
+          alt="raspberryPi5"
+          class="Iot-device-img"
+        />
         <div class="Iot-device">Raspberry Pi</div>
       </div>
     </div>
     <div class="Iot-devices-items">
-      <img src="/img/arduinoIDE.png" alt="arduinoIDE" class="arduinoIDE-img"/>
+      <img src="/img/arduinoIDE.png" alt="arduinoIDE" class="arduinoIDE-img" />
       <div class="Iot-device">arduinoIDE</div>
     </div>
     <div class="API-items">
-      <img src="/img/API.png" alt="API" class="API-img"/>
-      <div class="API-device">API <a href="https://github.com/nzm0863/Iot_light_web_ver1.0" target="_blank" rel="noopener noreferrer" class="API-link">コードを見る→</a></div>
+      <img src="/img/API.png" alt="API" class="API-img" />
+      <div class="API-device">
+        API
+        <a
+          href="https://github.com/nzm0863/Iot_light_web_ver1.0"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="API-link"
+          >コードを見る→</a
+        >
+      </div>
     </div>
   </section>
 
@@ -467,15 +342,27 @@ onMounted(() => {
       <img src="/img/me.jpg" alt="me" id="aboutImage" />
       <figure class="about-figcaption" id="aboutFigcaption">
         Web制作、UI設計、フロントエンド開発やIot開発を行っている静岡県浜松市在住の中村です。<br />
-        HTML/CSSやJavaScript、Vue.js、TypeScriptのほかarduinoIDEやRaspberry Piを用いたコーディングを得意とし、FigmaやPhotoshopを使ったデザイン制作にも対応可能です。<br />「見る人に伝わる・使う人にとって心地よい」を大切に、丁寧なものづくりを心がけています。
+        HTML/CSSやJavaScript、Vue.js、TypeScriptのほかarduinoIDEやRaspberry
+        Piを用いたコーディングを得意とし、FigmaやPhotoshopを使ったデザイン制作にも対応可能です。<br />「見る人に伝わる・使う人にとって心地よい」を大切に、丁寧なものづくりを心がけています。
       </figure>
     </figure>
     <div class="sns-links">
-      <a href="https://github.com/nzm0863/" class="github-link" target="_blank" rel="noopener noreferrer"><img src="/img/GitHub_Lockup_White.png" alt="GitHub" /></a>
-      <a href="https://www.youtube.com/@nakamura-nnzzm/shorts" class="youtube-link" target="_blank" rel="noopener noreferrer"><img src="/img/youtube_link5.png" alt="YouTube" /></a>
+      <a
+        href="https://github.com/nzm0863/"
+        class="github-link"
+        target="_blank"
+        rel="noopener noreferrer"
+        ><img src="/img/GitHub_Lockup_White.png" alt="GitHub"
+      /></a>
+      <a
+        href="https://www.youtube.com/@nakamura-nnzzm/shorts"
+        class="youtube-link"
+        target="_blank"
+        rel="noopener noreferrer"
+        ><img src="/img/youtube_link5.png" alt="YouTube"
+      /></a>
     </div>
   </section>
-
 
   <section class="contact" id="contact">
     <h1 class="contact-headline">Contact</h1>
@@ -580,10 +467,8 @@ onMounted(() => {
                   id="submit"
                   class="form_btn"
                 />
-                
               </td>
             </tr>
-            
           </table>
         </div>
       </form>
@@ -700,7 +585,7 @@ header h1 a {
 
 /* hero */
 .hero {
-  position: relative; 
+  position: relative;
   width: 100%;
   height: 100vh;
   min-height: 100vh;
@@ -785,7 +670,7 @@ video.fade {
 }
 .works-item a {
   width: fit-content;
-  line-height: 0; 
+  line-height: 0;
 }
 .works-item img {
   width: 35vw;
@@ -802,30 +687,6 @@ video.fade {
 .works-item p {
   margin-top: 10px;
   color: #fff;
-}
-.banner-chocolate-large,
-.banner-outdoor-large {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100% !important;
-  height: 100% !important;
-  margin: 0 !important;
-  padding: 0 !important;
-  z-index: 100;
-  box-shadow: 0 0 30px #000a;
-  transition: opacity 0.4s ease, transform 0.4s ease;
-  pointer-events: none;
-  object-fit: contain !important;
-  opacity: 0;
-  background: #000000;
-  transform: scale(1);
-}
-
-.banner-chocolate:hover + .banner-chocolate-large,
-.banner-outdoor:hover + .banner-outdoor-large {
-  opacity: 1;
-  transform: scale(1.1); 
 }
 
 /* skill */
@@ -848,7 +709,7 @@ video.fade {
   margin: 0 auto;
 }
 .skill-item {
-  flex: 0 1 calc(25% - 30px); 
+  flex: 0 1 calc(25% - 30px);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -895,7 +756,7 @@ video.fade {
   margin: 10px;
 }
 .Iot-item img:hover {
-  transform: scale(1.05)!important;
+  transform: scale(1.05) !important;
 }
 .Iot-item video {
   width: 50%;
@@ -933,7 +794,7 @@ video.fade {
   height: 50vh;
   object-fit: cover;
   margin: 20px 10px 10px 0;
-  transition: all 0.2s!important;
+  transition: all 0.2s !important;
 }
 .Iot-device-img:hover {
   transform: scale(1.05);
@@ -948,20 +809,20 @@ video.fade {
   height: 450px;
   object-fit: cover;
   margin: 70px 0 10px 10px;
-  transition: all 0.2s!important;
+  transition: all 0.2s !important;
 }
 .arduinoIDE-img:hover {
-  transform: scale(1.05)!important;
+  transform: scale(1.05) !important;
 }
 .API-img {
   width: 80vw;
   height: auto;
   object-fit: cover;
   margin: 70px 0 10px 10px;
-  transition: all 0.2s!important;
+  transition: all 0.2s !important;
 }
 .API-img:hover {
-  transform: scale(1.05)!important;
+  transform: scale(1.05) !important;
 }
 .API-link {
   color: #fff;
@@ -972,8 +833,6 @@ video.fade {
 .API-link:hover {
   transform: scale(1.05);
 }
-
-
 
 /* about */
 .about {
@@ -1031,7 +890,7 @@ video.fade {
   align-items: center;
   margin-top: 10px;
 }
-.API-device a{
+.API-device a {
   color: #fff;
   text-decoration: none;
   margin-left: 10px;
@@ -1044,7 +903,7 @@ video.fade {
   position: absolute;
   right: 10vw;
 }
-.sns-links .github-link{
+.sns-links .github-link {
   width: 15vw;
   height: 100%;
   object-fit: cover;
@@ -1055,14 +914,14 @@ video.fade {
 }
 .sns-links .github-link img {
   display: block;
-  margin:0 auto;
+  margin: 0 auto;
   width: 100%;
   height: 100%;
   object-fit: cover;
   margin-top: 30px;
   max-width: 200px;
 }
-.sns-links .youtube-link{
+.sns-links .youtube-link {
   object-fit: cover;
   transition: all 0.2s;
 }
@@ -1160,7 +1019,6 @@ video.fade {
   height: 100px;
 }
 
-
 /* footer */
 .footer {
   text-align: center;
@@ -1172,8 +1030,6 @@ video.fade {
   padding: 20px;
   margin: 0;
 }
-
-
 
 /* レスポンシブ */
 @media screen and (max-width: 768px) {
@@ -1358,7 +1214,8 @@ video.fade {
   }
 
   /* Iot */
-  .Iot-headline,.Iot-devices-headline {
+  .Iot-headline,
+  .Iot-devices-headline {
     font-size: 24px;
     margin: 20px 0;
     padding: 0;
@@ -1388,7 +1245,7 @@ video.fade {
     justify-content: center;
     gap: 100px;
   }
-  .Iot-item h3{
+  .Iot-item h3 {
     margin-top: 50px;
   }
   .Iot-device-img {
@@ -1425,7 +1282,7 @@ video.fade {
     gap: 0;
   }
   .Iot-device-img {
-    width: 100%; 
+    width: 100%;
     height: 50vh;
     object-fit: cover;
     transition: all 0.2s;
@@ -1454,7 +1311,7 @@ video.fade {
     margin-left: 0;
   }
 
-    /* about */
+  /* about */
   .about-headline {
     font-size: 24px;
     margin: 20px 0;
@@ -1507,16 +1364,16 @@ video.fade {
   }
   .sns-links .github-link img {
     display: block;
-    margin:0 auto;
+    margin: 0 auto;
     width: 95vw;
     height: auto;
-    margin:0 auto;
+    margin: 0 auto;
   }
-  .sns-links .youtube-link img{
+  .sns-links .youtube-link img {
     display: block;
-    margin:0 auto;
+    margin: 0 auto;
     width: 95vw;
-    height:auto;
+    height: auto;
     margin-top: 30px;
   }
   /* contact */
@@ -1568,7 +1425,6 @@ video.fade {
     border-bottom: #fff 1px solid;
   }
 
-
   .contact tr input,
   .contact tr select,
   .contact tr textarea {
@@ -1580,22 +1436,20 @@ video.fade {
     min-height: 80px;
     resize: vertical; /* ユーザーが高さを変えられるようにする場合 */
   }
-  .radio  {
+  .radio {
     width: 80%;
     margin-top: 10px;
     border-radius: 4px;
     font-size: 20px;
     transition: background-color 0.2s;
   }
-  .form_btn{
+  .form_btn {
     margin: 0 auto;
     width: 80%;
     display: block;
   }
-  .radio-group label{
+  .radio-group label {
     margin: 0;
   }
-  
-  
 }
 </style>
