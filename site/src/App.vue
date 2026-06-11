@@ -199,91 +199,106 @@ onMounted(() => {
     <div class="works-items">
       <div class="works-item">
         <a
+          href="https://www.nnzzm.com/project_management/"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><img src="/img/TaskFlow.png" alt="TaskFlow"
+        /></a>
+        <p>
+          案件情報の登録・管理ができるタスク管理アプリ <br />React / TypeScript
+          / Vite
+        </p>
+      </div>
+      <div class="works-item">
+        <a
           href="https://www.nnzzm.com/sigotoru1"
           target="_blank"
           rel="noopener noreferrer"
           ><img src="/img/dentist.jpg" alt="dentist"
         /></a>
-        <p>歯科のホームページ<br />vite,TypeScript,Reactで作成</p>
+        <p>
+          予約導線を意識した歯科医院向けサイト <br />React / TypeScript / Vite
+        </p>
       </div>
       <div class="works-item">
         <a
-          href="https://www.nnzzm.com/university/"
+          href="https://www.nnzzm.com/portfolio_wp"
           target="_blank"
           rel="noopener noreferrer"
-          ><img src="/img/university.jpg" alt="university"
+          ><img src="/img/portfolio_wp.png" alt="portfolio_wp"
         /></a>
-        <p>大学のホームページ<br />WordPressで作成</p>
+        <p>WordPressテーマ化ポートフォリオ<br />WordPress / PHP</p>
+      </div>
+      <div class="works-item">
+        <a
+          href="https://www.youtube.com/@nakamura-nnzzm/shorts"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><img src="/img/youtubeLink.png" alt="IoTYoutube"
+        /></a>
+        <p>ESP32を用いたIoT制作の過程を動画で公開 <br />ESP32 / Arduino IDE</p>
       </div>
     </div>
   </section>
 
   <section class="skill">
-    <h2 class="skill-headline" id="skill">Skill</h2>
+    <h2 class="skill-headline" id="skill">Web Skill</h2>
     <div class="skill-items">
       <div class="skill-item">
-        <div class="html-css">
-          <img src="/img/html-img.png" alt="html/css" /><img
-            src="/img/css-img.png"
-            alt="HTML/CSS"
-          />
-        </div>
-        <p>
-          <span>HTML/CSS</span
-          ><br />レスポンシブ対応も含め、実装まで一貫対応可能
-        </p>
-      </div>
-      <div class="skill-item">
-        <img src="/img/js-img.png" alt="JavaScript" />
-        <p>
-          <span>JavaScript</span
-          ><br />動きのあるインタラクションでユーザー体験を向上
-        </p>
+        <img src="/img/react.png" alt="TypeScript" />
+        <p><span>React</span><br />コンポーネント設計を用いたUI開発を実践</p>
       </div>
       <div class="skill-item">
         <img src="/img/ts-img.png" alt="TypeScript" />
         <p>
-          <span>TypeScript</span><br />JavaScriptの柔軟さに型の安心感をプラス
+          <span>TypeScript</span><br />型安全を意識したフロントエンド開発を経験
         </p>
       </div>
       <div class="skill-item">
         <img src="/img/PHP-img.png" alt="PHP" />
-        <p>
-          <span>PHP</span><br />シンプルで実用的、使いやすさを追求したPHP開発
-        </p>
+        <p><span>PHP</span><br />フォーム処理やデータベース連携を実装</p>
       </div>
       <div class="skill-item">
         <img src="/img/wordpress-img.png" alt="WordPress" />
         <p>
-          <span>WordPress</span
-          ><br />カスタムテーマ制作やプラグイン設定まで幅広く対応
+          <span>WordPress</span><br />オリジナルテーマ制作やカスタマイズを経験
         </p>
       </div>
       <div class="skill-item">
         <img src="/img/vue-img.png" alt="vue.js" />
-        <p><span>vue.js</span><br />コンポーネント設計で効率的なUI開発を実現</p>
-      </div>
-      <div class="skill-item">
-        <img src="/img/photoshop-img.png" alt="Adbe photoshop" />
-        <p>
-          <span>Adobe Photoshop</span
-          ><br />細かなトーン調整や合成で魅せるビジュアルを制作
-        </p>
+        <p><span>vue.js</span><br />Vue + Viteを用いて本ポートフォリオを制作</p>
       </div>
       <div class="skill-item">
         <img src="/img/figma-img.png" alt="Figma" />
-        <p>
-          <span>Figma</span><br />UI設計からプロトタイピングまで一貫して対応
-        </p>
+        <p><span>Figma</span><br />画面設計やプロトタイプ作成に活用</p>
       </div>
     </div>
   </section>
 
   <section class="Iot">
     <h2 class="Iot-headline" id="Iot">IoT</h2>
-    <h3 class="ESP32-headline">
-      ESP32で作成した電子回路<br />自宅の照明を毎朝自動で点灯させる赤外線送信機
-    </h3>
+    <div class="IotCar">
+      <div class="Iot-item">
+        <video
+          src="/video/1000000932.mp4"
+          aria-label="Iot-video"
+          muted
+          preload="metadata"
+          controls
+        />
+        <h3 class="raspberry-headline">raspberry piで作成した車</h3>
+      </div>
+      <div class="Iot-item">
+        <a
+          href="https://www.youtube.com/@nakamura-nnzzm/shorts"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><img src="/img/ESP32Car.jpg" alt="ESP32Car" />
+        </a>
+        <h3 class="raspberry-headline">ESP32でリペア中の車</h3>
+      </div>
+    </div>
+
     <div class="Iot-items">
       <div class="Iot-item">
         <img src="/img/PXL_20260109_054044567.jpg" alt="Iot-img" />
@@ -291,16 +306,6 @@ onMounted(() => {
       <div class="Iot-item">
         <img src="/img/1000001053.jpg" alt="Iot-img" />
       </div>
-    </div>
-    <div class="Iot-item">
-      <h3 class="raspberry-headline">raspberry piで作成した車</h3>
-      <video
-        src="/video/1000000932.mp4"
-        aria-label="Iot-video"
-        muted
-        preload="metadata"
-        controls
-      />
     </div>
     <h3 class="Iot-devices-headline">使用した機器,ソフトウェア</h3>
     <div class="Iot-devices">
@@ -656,7 +661,7 @@ video.fade {
 .works-items {
   display: flex;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: 20px;
   justify-content: center;
   margin: 0 auto;
 }
@@ -674,11 +679,15 @@ video.fade {
 }
 .works-item img {
   width: 35vw;
-  height: 50vh;
-  max-height: 500px;
+  height: 400px;
   object-fit: cover;
   transition: all 0.2s;
   margin: 10px;
+}
+@media screen and (max-width: 1200px) {
+  .works-item img {
+    height: 200px;
+  }
 }
 .works-item img:hover {
   transform: scale(1.05);
@@ -709,7 +718,7 @@ video.fade {
   margin: 0 auto;
 }
 .skill-item {
-  flex: 0 1 calc(25% - 30px);
+  flex: 0 1 calc(40% - 30px);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -739,6 +748,11 @@ video.fade {
   margin-bottom: 30px;
   scroll-margin-top: 200px;
 }
+.IotCar{
+  display:flex;
+  justify-content: center;
+  gap:20px;
+}
 .Iot-items {
   display: flex;
   flex-wrap: wrap;
@@ -747,20 +761,21 @@ video.fade {
   margin: 0 auto;
 }
 .Iot-item {
-  flex: 0 1 calc(25% - 30px);
+  flex: 0 1 calc(25% - 30px);;
 }
 .Iot-item img {
-  width: 30vw;
-  height: 400px;
+  width: auto;
+  height: 600px;
   object-fit: cover;
   margin: 10px;
+  
 }
 .Iot-item img:hover {
   transform: scale(1.05) !important;
 }
 .Iot-item video {
-  width: 50%;
-  height: 80vh;
+  width: auto;
+  height: 600px;
   object-fit: cover;
   margin: 10px;
 }
@@ -983,12 +998,6 @@ video.fade {
   margin-right: 40px;
 }
 .form_btn {
-  /* font-size: 20px; */
-  /* background-color: #0084ff00; */
-  /* color: white;
-  padding: 10px 0; */
-  /* border: none; */
-  /* border-radius: 4px; */
   cursor: pointer;
   transition: all 0.2s ease;
   outline: none;
@@ -1149,7 +1158,7 @@ video.fade {
   }
   .works-item img {
     width: 100%;
-    height: auto;
+    height: 200px;
     object-fit: cover;
     transition: all 0.2s;
     margin: 0;
@@ -1161,23 +1170,6 @@ video.fade {
   .works-item p {
     margin-top: 10px;
     color: #fff;
-  }
-  .banner-chocolate,
-  .banner-outdoor {
-    width: 100%;
-    height: auto;
-    transition: all 0.2s;
-  }
-  .banner-chocolate:hover {
-    width: 100%;
-    height: auto;
-    transition: all 0.1s;
-  }
-  .banner-outdoor:hover {
-    width: 100%;
-    height: auto;
-    /* transform: scale(1.05); */
-    transition: all 0.2s;
   }
   /* skill */
   .skill {
