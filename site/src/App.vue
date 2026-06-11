@@ -277,6 +277,24 @@ onMounted(() => {
 
   <section class="Iot">
     <h2 class="Iot-headline" id="Iot">IoT</h2>
+    <div class="TaskFlow-Iot">
+      <div class="Iot-item">
+        <a href="https://www.nnzzm.com/project_management/">
+          <img src="/img/TaskFlow-Iot.png" alt="TaskFlow-IoT" />
+        </a>
+        <h3>
+          ESP32とNeoPixelを用いて、案件管理アプリの状態に応じたLED制御を実装。<br />
+          PC画面を開かなくても案件状況を把握できるよう工夫し、<br />
+          視認性向上による業務効率化を目指して開発。<br />
+          ESP32 / Arduino IDE / React / TypeScript / vite
+        </h3>
+        <a
+          href="https://github.com/nzm0863/taskflow-app"
+          class="TaskFlow-code-link"
+          >GitHubで見る→</a
+        >
+      </div>
+    </div>
     <div class="IotCar">
       <div class="Iot-item">
         <video
@@ -286,7 +304,10 @@ onMounted(() => {
           preload="metadata"
           controls
         />
-        <h3 class="raspberry-headline">raspberry piで作成した車</h3>
+        <h3 class="raspberry-headline">
+          Raspberry Pi搭載メカナムホイールカー<br />
+          試作機のトラブルをきっかけにESP32版へ移行
+        </h3>
       </div>
       <div class="Iot-item">
         <a
@@ -295,48 +316,10 @@ onMounted(() => {
           rel="noopener noreferrer"
           ><img src="/img/ESP32Car.jpg" alt="ESP32Car" />
         </a>
-        <h3 class="raspberry-headline">ESP32でリペア中の車</h3>
-      </div>
-    </div>
-
-    <div class="Iot-items">
-      <div class="Iot-item">
-        <img src="/img/PXL_20260109_054044567.jpg" alt="Iot-img" />
-      </div>
-      <div class="Iot-item">
-        <img src="/img/1000001053.jpg" alt="Iot-img" />
-      </div>
-    </div>
-    <h3 class="Iot-devices-headline">使用した機器,ソフトウェア</h3>
-    <div class="Iot-devices">
-      <div class="Iot-devices-items">
-        <img src="/img/ESP32.jpg" alt="ESP32" class="Iot-device-img" />
-        <div class="Iot-device">ESP32</div>
-      </div>
-      <div class="Iot-devices-items">
-        <img
-          src="/img/raspberryPi5.png"
-          alt="raspberryPi5"
-          class="Iot-device-img"
-        />
-        <div class="Iot-device">Raspberry Pi</div>
-      </div>
-    </div>
-    <div class="Iot-devices-items">
-      <img src="/img/arduinoIDE.png" alt="arduinoIDE" class="arduinoIDE-img" />
-      <div class="Iot-device">arduinoIDE</div>
-    </div>
-    <div class="API-items">
-      <img src="/img/API.png" alt="API" class="API-img" />
-      <div class="API-device">
-        API
-        <a
-          href="https://github.com/nzm0863/Iot_light_web_ver1.0"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="API-link"
-          >コードを見る→</a
-        >
+        <h3 class="raspberry-headline">
+          ESP32搭載メカナムホイールカー<br />
+          電源設計やモーター制御を見直し改良を継続
+        </h3>
       </div>
     </div>
   </section>
@@ -346,9 +329,10 @@ onMounted(() => {
     <figure class="about-figure">
       <img src="/img/me.jpg" alt="me" id="aboutImage" />
       <figure class="about-figcaption" id="aboutFigcaption">
-        Web制作、UI設計、フロントエンド開発やIot開発を行っている静岡県浜松市在住の中村です。<br />
-        HTML/CSSやJavaScript、Vue.js、TypeScriptのほかarduinoIDEやRaspberry
-        Piを用いたコーディングを得意とし、FigmaやPhotoshopを使ったデザイン制作にも対応可能です。<br />「見る人に伝わる・使う人にとって心地よい」を大切に、丁寧なものづくりを心がけています。
+        React / TypeScript を用いたフロントエンド開発を中心に、 Supabase や
+        Next.js を活用したWebアプリケーション開発にも取り組んでいます。<br>
+        　また、ESP32 や Raspberry Pi を活用した IoT 開発を通じて、 Web
+        とハードウェアを組み合わせた課題解決を目指しています。
       </figure>
     </figure>
     <div class="sns-links">
@@ -748,10 +732,16 @@ video.fade {
   margin-bottom: 30px;
   scroll-margin-top: 200px;
 }
-.IotCar{
-  display:flex;
+.IotCar {
+  display: flex;
   justify-content: center;
-  gap:20px;
+  gap: 20px;
+}
+@media (max-width: 1200px) {
+  .IotCar {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 .Iot-items {
   display: flex;
@@ -761,21 +751,29 @@ video.fade {
   margin: 0 auto;
 }
 .Iot-item {
-  flex: 0 1 calc(25% - 30px);;
+  flex: 0 1 calc(25% - 30px);
+  position: relative;
 }
 .Iot-item img {
   width: auto;
-  height: 600px;
+  height: 500px;
+  max-width: 1000px;
   object-fit: cover;
   margin: 10px;
-  
+  transition: all 0.2s;
+}
+@media (max-width: 1200px) {
+  .Iot-item img {
+    width: 60vw;
+    height: auto;
+  }
 }
 .Iot-item img:hover {
   transform: scale(1.05) !important;
 }
 .Iot-item video {
   width: auto;
-  height: 600px;
+  height: 500px;
   object-fit: cover;
   margin: 10px;
 }
@@ -786,13 +784,15 @@ video.fade {
 }
 .raspberry-headline {
   font-size: 20px;
-  margin-bottom: 10px;
   color: #fff;
+  margin-bottom: 50px;
+  margin-top: 0;
 }
 .Iot-devices-headline {
   font-size: 30px;
   margin-bottom: 10px;
   color: #fff;
+  margin-top: 0;
 }
 .Iot-devices {
   display: flex;
@@ -846,6 +846,23 @@ video.fade {
   transition: all 0.2s;
 }
 .API-link:hover {
+  transform: scale(1.05);
+}
+
+.TaskFlow-code-link {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 10px;
+  margin-bottom: 50px;
+  background-color: #00b60f;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #003504;
+  box-shadow: 0 5px 5px 0 #003504;
+  transition: all 0.1s;
+  display: inline-block;
+}
+.TaskFlow-code-link:hover {
   transform: scale(1.05);
 }
 
@@ -904,19 +921,6 @@ video.fade {
 .API-device {
   align-items: center;
   margin-top: 10px;
-}
-.API-device a {
-  color: #fff;
-  text-decoration: none;
-  margin-left: 10px;
-  margin-top: -10px;
-  background-color: #00b60f;
-  padding: 5px 10px;
-  border-radius: 5px;
-  border: 1px solid #003504;
-  box-shadow: 0 10px 10px 0 #003504;
-  position: absolute;
-  right: 10vw;
 }
 .sns-links .github-link {
   width: 15vw;
@@ -1217,15 +1221,17 @@ video.fade {
     gap: 20px;
   }
   .Iot-item img {
-    width: 100vw;
-    height: 50vh;
+    width: 100%;
+    height: auto;
     object-fit: cover;
     transition: all 0.2s;
     margin: 0;
   }
+
+  .TaskFlow-code-link {
+    margin-top: 10px;
+  }
   .Iot-item video {
-    width: 100%;
-    height: 80vh;
     object-fit: cover;
     transition: all 0.2s;
     margin: 0;
@@ -1238,7 +1244,8 @@ video.fade {
     gap: 100px;
   }
   .Iot-item h3 {
-    margin-top: 50px;
+    margin: 10px 10px 0;
+    font-size: 16px;
   }
   .Iot-device-img {
     width: 100%;
@@ -1306,7 +1313,7 @@ video.fade {
   /* about */
   .about-headline {
     font-size: 24px;
-    margin: 20px 0;
+    margin: 50px 0 20px 0;
     padding: 0;
     scroll-margin-top: 100px;
   }
@@ -1375,26 +1382,6 @@ video.fade {
     padding: 0;
     scroll-margin-top: 100px;
   }
-  /* .contact table {
-    width:90%;
-  }
-  .contact tr {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .contact tr th {
-    text-align: left;
-    width: 100%;
-    padding: 10px;
-    font-size: 20px;
-  }
-  .contact tr td {
-    width: 100%;
-    padding: 10px;
-    text-align: left;
-  } */
-
   .contact table,
   .contact tr,
   .contact th,
@@ -1424,9 +1411,9 @@ video.fade {
     padding: 5px;
   }
   .contact tr textarea {
-    height: 80px; /* テキストエリアだけ高さを少し大きくしたい場合 */
+    height: 80px;
     min-height: 80px;
-    resize: vertical; /* ユーザーが高さを変えられるようにする場合 */
+    resize: vertical;
   }
   .radio {
     width: 80%;
