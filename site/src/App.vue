@@ -279,7 +279,11 @@ onMounted(() => {
     <h2 class="Iot-headline" id="Iot">IoT</h2>
     <div class="TaskFlow-Iot">
       <div class="Iot-item">
-        <a href="https://www.nnzzm.com/project_management/">
+        <a
+          href="https://www.nnzzm.com/project_management/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <img src="/img/TaskFlow-Iot.png" alt="TaskFlow-IoT" />
         </a>
         <h3>
@@ -290,6 +294,8 @@ onMounted(() => {
         </h3>
         <a
           href="https://github.com/nzm0863/taskflow-app"
+          target="_blank"
+          rel="noopener noreferrer"
           class="TaskFlow-code-link"
           >GitHubで見る→</a
         >
@@ -330,7 +336,7 @@ onMounted(() => {
       <img src="/img/me.jpg" alt="me" id="aboutImage" />
       <figure class="about-figcaption" id="aboutFigcaption">
         React / TypeScript を用いたフロントエンド開発を中心に、 Supabase や
-        Next.js を活用したWebアプリケーション開発にも取り組んでいます。<br>
+        Next.js を活用したWebアプリケーション開発にも取り組んでいます。<br />
         　また、ESP32 や Raspberry Pi を活用した IoT 開発を通じて、 Web
         とハードウェアを組み合わせた課題解決を目指しています。
       </figure>
