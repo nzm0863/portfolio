@@ -206,7 +206,7 @@ onMounted(() => {
         /></a>
         <p>
           案件情報の登録・管理ができるタスク管理アプリ <br />React / TypeScript
-          / Vite
+          / Vite<br />※ デモ用アカウントemail:test1@test.com　pass:000
         </p>
       </div>
       <div class="works-item">
