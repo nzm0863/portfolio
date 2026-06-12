@@ -299,6 +299,13 @@ onMounted(() => {
           class="TaskFlow-code-link"
           >GitHubで見る→</a
         >
+        <a
+          href="https://www.youtube.com/watch?v=A44YyAnDyGU"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="TaskFlow-code-link"
+          >Youtubeで見る→</a
+        >
       </div>
     </div>
     <div class="IotCar">
@@ -503,12 +510,12 @@ body {
   left: 0;
   width: 10px;
   height: 10px;
-  background-color: rgba(150, 166, 0, 0.7); /* 半透明の赤色 */
+  background-color: rgba(150, 166, 0, 0.7); 
   border-radius: 50%;
-  pointer-events: none; /* 要素がクリックを妨げないようにする */
+  pointer-events: none; 
   transition: opacity 0.2s ease-out;
   opacity: 1;
-  z-index: 9999; /* 最前面に表示 */
+  z-index: 9999; 
 }
 
 /* header */
